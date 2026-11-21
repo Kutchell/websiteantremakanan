@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KantinKu - Pesan Makanan</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a href="#" class="brand" data-page="home">
+        <span class="brand-icon">🍱</span>
+        <span>Kantin<span class="brand-accent">Ku.</span></span>
+      </a>
+
+      <p class="nav-label">MENU UTAMA</p>
+
+      <nav class="navigation">
+        <button class="nav-link active" data-page="home">
+          <span>⌂</span> Home
+        </button>
+        <button class="nav-link" data-page="menu">
+          <span>☷</span> Menu
+        </button>
+        <button class="nav-link" data-page="order">
+          <span>🛒</span> Order
+          <span class="nav-count" id="cart-count">0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-promo">
+        <div class="promo-emoji">🍜</div>
+        <h3>Lagi lapar?</h3>
+        <p>Pesan sekarang, ambil nanti. Gak perlu antre lama!</p>
+        <button class="btn btn-light" data-page="menu">
+          Pesan yuk!
+        </button>
+      </div>
+
+      <div class="sidebar-bottom">
+        <span class="status-dot"></span>
+        Kantin sedang beroperasi
+      </div>
+    </aside>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+
+      <!-- HEADER -->
+      <header class="topbar">
+        <div class="mobile-brand">
+          🍱 Kantin<span class="brand-accent">Ku.</span>
+        </div>
+
+        <div class="breadcrumb" id="breadcrumb">
+          Home / Beranda
+        </div>
+
+        <div class="header-actions">
+          <form class="search-box" id="search-form">
+            <span>⌕</span>
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Cari makanan..."
+              aria-label="Cari makanan"
+            >
+            <button type="submit">Cari</button>
+          </form>
+          <button class="btn btn-outline" id="login-btn">
+            ♙ Login
+          </button>
+        </div>
+      </header>
+
+      <!-- HALAMAN HOME -->
+      <section class="page active" id="home-page">
+
+        <div class="welcome-banner">
+          <div class="welcome-copy">
+            <span class="eyebrow">👋 HALO, SOBAT KANTIN!</span>
+            <h1>Laper? Yuk, isi<br>perut dulu! 🍽️</h1>
+            <p>
+              Makanan enak, harga bersahabat.
+              Pesan online, ambil tanpa antre panjang.
+            </p>
+            <button class="btn btn-primary" data-page="menu">
+              Lihat Menu <span>→</span>
+            </button>
+          </div>
+          <div class="welcome-art">🍛</div>
+          <div class="banner-decoration decoration-one"></div>
+          <div class="banner-decoration decoration-two"></div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <h2>Informasi Kantin</h2>
+            <p>Semua informasi yang kamu butuhkan.</p>
+          </div>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <div class="info-icon orange">🕒</div>
+            <div>
+              <p>Jam Operasional</p>
+              <h3>07.00 - 16.00</h3>
+              <span>Senin - Jumat</span>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="info-icon green">🎟️</div>
+            <div>
+              <p>Nomor Antrean</p>
+              <h3 id="queue-info">A-001</h3>
+              <span>Simulasi nomor antrean</span>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <div class="info-icon purple">⚡</div>
+            <div>
+              <p>Estimasi Pesanan</p>
+              <h3>10 - 15 Menit</h3>
+              <span>Tergantung antrean</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <h2>Favorit Hari Ini ❤️</h2>
+            <p>Menu yang bisa kamu pesan sekarang.</p>
+          </div>
+          <button class="text-button" data-page="menu">
+            Lihat semua →
+          </button>
+        </div>
+
+        <div class="food-grid" id="featured-menu"></div>
+
+        <div class="preorder-banner">
+          <div>
+            <span class="eyebrow">ANTI RIBUT, ANTI TELAT</span>
+            <h2>Pre-order sekarang!</h2>
+            <p>Pesan dari kelas, lalu ambil saat istirahat.</p>
+          </div>
+          <button class="btn btn-primary" data-page="menu">
+            Mulai Pre-order →
+          </button>
+        </div>
+
+      </section>
+
+      <!-- HALAMAN MENU -->
+      <section class="page" id="menu-page">
+        <div class="page-intro">
+          <span class="eyebrow">PILIHAN LEZAT SETIAP HARI</span>
+          <h1>Menu Kantin 🍽️</h1>
+          <p>Pilih makanan favoritmu, lalu tambahkan ke pesanan.</p>
+        </div>
+
+        <div class="category-tabs">
+          <button class="category-btn active" data-category="Semua">
+            Semua
+          </button>
+          <button class="category-btn" data-category="Makanan Berat">
+            🍛 Makanan Berat
+          </button>
+          <button class="category-btn" data-category="Makanan Ringan">
+            🍟 Makanan Ringan
+          </button>
+          <button class="category-btn" data-category="Minuman">
+            🥤 Minuman
+          </button>
+        </div>
+
+        <div class="menu-result-info" id="menu-result-info"></div>
+        <div class="food-grid" id="all-menu"></div>
+      </section>
+
+      <!-- HALAMAN ORDER -->
+      <section class="page" id="order-page">
+        <div class="page-intro">
+          <span class="eyebrow">TINGGAL SEDIKIT LAGI!</span>
+          <h1>Pesanan Saya 🛒</h1>
+          <p>Cek pesanan dan total pembayaranmu di sini.</p>
+        </div>
+
+        <div class="order-layout">
+          <div class="order-list-panel">
+            <div class="panel-heading">
+              <h2>Daftar Pesanan</h2>
+              <span id="order-item-count">0 item</span>
+            </div>
+            <div id="order-list"></div>
+          </div>
+
+          <aside class="summary-card">
+            <h2>Ringkasan</h2>
+            <div class="summary-row">
+              <span>Total item</span>
+              <span id="summary-qty">0</span>
+            </div>
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="subtotal">Rp0</span>
+            </div>
+            <div class="summary-row">
+              <span>Biaya layanan</span>
+              <span>Rp0</span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-row total-row">
+              <span>Total bayar</span>
+              <strong id="total-price">Rp0</strong>
+            </div>
+
+            <label class="input-label" for="customer-name">
+              Nama pemesan
+            </label>
+            <input
+              class="form-input"
+              id="customer-name"
+              type="text"
+              placeholder="Masukkan namamu"
+            >
+
+            <label class="input-label" for="pickup-time">
+              Waktu pengambilan
+            </label>
+            <select class="form-input" id="pickup-time">
+              <option value="Istirahat pertama">Istirahat pertama</option>
+              <option value="Istirahat kedua">Istirahat kedua</option>
+              <option value="Ambil sekarang">Ambil sekarang</option>
+            </select>
+
+            <button class="btn btn-primary checkout-btn" id="checkout-btn">
+              Buat Pesanan →
+            </button>
+            <p class="secure-note">♡ Pesananmu siap diproses</p>
+          </aside>
+        </div>
+
+        <div class="order-history" id="order-history">
+          <h2>Pesanan Terakhir</h2>
+          <p>Belum ada pesanan yang dibuat.</p>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <p>© 2026 KantinKu. Dibuat dengan ❤️ untuk sobat kantin.</p>
+        <p>Enak • Praktis • Hemat</p>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- MODAL LOGIN -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="close-login" aria-label="Tutup">
+        ×
+      </button>
+      <div class="modal-logo">🍱</div>
+      <h2>Hai, Sobat Kantin!</h2>
+      <p>Masukkan nama untuk mulai memesan makanan.</p>
+
+      <form id="login-form">
+        <label class="input-label" for="login-name">Nama kamu</label>
+        <input
+          class="form-input"
+          id="login-name"
+          type="text"
+          placeholder="Contoh: Anisa"
+          required
+        >
+        <button class="btn btn-primary checkout-btn" type="submit">
+          Masuk →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- NOTIFIKASI -->
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
